@@ -27,7 +27,11 @@
     --line: #ece1cd;
     --line-strong: #8a6b47;
     --rust: #b9793f;
+    --btn: #6b4423;
   }
+
+  .bg-sand { background: var(--paper-dim); }
+  .bg-white { background: var(--card); }
 
   body {
     background: var(--paper-dim);
@@ -84,7 +88,7 @@
   /* ── Hero ─────────────────── */
   .hero {
     position: relative; width: 100%; padding: 56px 24px 44px;
-    background: radial-gradient(ellipse at top, #fffdf9 0%, #f9f2e2 70%, #f2e8d2 100%);
+    background: var(--card);
     text-align: center; overflow: hidden;
   }
   .hero-photos { display: flex; justify-content: center; gap: 22px; margin-bottom: 30px; }
@@ -105,7 +109,7 @@
   .greeting-rule { width: 40px; height: 1px; background: var(--ink); margin: 26px auto 0; }
 
   /* ── Calendar ─────────────── */
-  .calendar-section { padding: 66px 36px; text-align: center; background: linear-gradient(180deg, #fdfbf6 0%, #f6eeda 100%); display: flex; flex-direction: column; align-items: center; }
+  .calendar-section { padding: 66px 36px; text-align: center; background: var(--card); display: flex; flex-direction: column; align-items: center; }
   .cal-card { display: flex; flex-direction: column; align-items: center; padding: 40px 30px 34px; background: var(--card); border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(74,47,24,0.10); width: 100%; max-width: 380px; }
   @media (max-width: 480px) { .cal-card { padding: 32px 16px 26px; } }
   .cal-month { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 6vw, 38px); letter-spacing: 4px; color: var(--charcoal); margin-bottom: 24px; }
@@ -122,11 +126,15 @@
   .cal-sub .dot { color: var(--ash-soft); padding: 0 6px; }
 
   /* ── Program timeline ─────────────── */
-  .schedule-wrap { max-width: 580px; margin: 0 auto; position: relative; text-align: left; }
-  .schedule-wrap::before { content: ''; position: absolute; left: 62px; top: 4px; bottom: 4px; width: 1px; background: var(--line); }
-  .schedule-item { display: flex; gap: 22px; align-items: flex-start; padding: 0 0 28px; position: relative; }
+  .schedule-wrap { max-width: 580px; margin: 0 auto; position: relative; text-align: left; --time-col: 74px; --item-gap: 22px; }
+  .schedule-wrap::before { content: ''; position: absolute; left: calc(var(--time-col) + var(--item-gap) + 10px); top: 4px; bottom: 4px; width: 1px; background: var(--line); }
+  .schedule-item { display: flex; gap: var(--item-gap); align-items: flex-start; padding: 0 0 28px; position: relative; }
   .schedule-item:last-child { padding-bottom: 0; }
-  .s-time { flex: 0 0 74px; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--ash); padding-top: 2px; text-align: right; }
+  .s-time { flex: 0 0 var(--time-col); font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.25; color: var(--ash); padding-top: 2px; text-align: right; }
+  @media (max-width: 480px) {
+    .schedule-wrap { --time-col: 56px; --item-gap: 12px; }
+    .s-time { font-size: 13px; }
+  }
   .s-dot-wrap { flex: 0 0 20px; display: flex; align-items: flex-start; justify-content: center; padding-top: 5px; position: relative; z-index: 1; }
   .s-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 4px var(--card), 0 0 0 5px var(--line); }
   .s-desc strong { display: block; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 3px; }
@@ -139,13 +147,12 @@
   .loc-tag { font-size: 12px; letter-spacing: 2px; color: var(--ash); margin-bottom: 10px; }
   .loc-name { font-family: 'Playfair Display', serif; font-size: clamp(21px, 4vw, 26px); font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
   .loc-address { font-size: 17px; color: #5a4326; margin-bottom: 16px; line-height: 1.55; }
-  .map-btn { display: inline-block; padding: 10px 26px; border-radius: 40px; border: 1px solid var(--ink); color: var(--ink); font-family: "Cormorant Garamond", serif; font-size: 15px; letter-spacing: 1.5px; text-decoration: none; transition: background .2s, color .2s; }
-  .map-btn:hover { background: var(--ink); color: #fff; }
-  .map-frame { width: 100%; height: 220px; border: none; border-radius: 6px; margin-top: 18px; filter: grayscale(60%) sepia(15%); transition: filter .4s ease; }
-  .map-frame:hover { filter: grayscale(0%) sepia(0%); }
+  .map-btn { display: inline-block; padding: 10px 26px; border-radius: 40px; border: 1px solid var(--btn); color: var(--btn); font-family: "Cormorant Garamond", serif; font-size: 15px; letter-spacing: 1.5px; text-decoration: none; transition: background .2s, color .2s; }
+  .map-btn:hover { background: var(--btn); color: #fff; }
+  .map-frame { width: 100%; height: 220px; border: none; border-radius: 6px; margin-top: 18px; }
 
   /* ── Countdown ─────────────── */
-  .countdown-section { background: linear-gradient(180deg, #f8f2e2 0%, #efe3c8 100%); padding: 58px 16px 62px; text-align: center; overflow: hidden; }
+  .countdown-section { background: var(--paper-dim); padding: 58px 16px 62px; text-align: center; overflow: hidden; }
   .countdown-label { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 30px); font-weight: 700; color: var(--charcoal); letter-spacing: 0.5px; margin-bottom: 30px; display: block; }
   .countdown { display: flex; justify-content: center; align-items: center; gap: clamp(4px, 2vw, 14px); flex-wrap: nowrap; }
   .countdown-item { text-align: center; }
@@ -195,14 +202,14 @@
   .rsvp-extra-wrap { transition: opacity .3s ease, max-height .3s ease; overflow: hidden; max-height: 900px; }
   .rsvp-extra-wrap.hidden { opacity: 0; max-height: 0; pointer-events: none; }
   .rsvp-note { background: #fff; border-left: 3px solid var(--ink); padding: 14px 18px; border-radius: 2px; font-size: 14px; color: #5a4326; line-height: 1.55; }
-  .rsvp-submit { margin-top: 4px; padding: 15px; border: 1px solid var(--ink); border-radius: 40px; background: var(--ink); color: #fff; font-family: "Cormorant Garamond", serif; font-size: 16px; letter-spacing: 2px; cursor: pointer; transition: background .2s, color .2s, transform .1s; }
-  .rsvp-submit:hover { background: #fff; color: var(--ink); }
+  .rsvp-submit { margin-top: 4px; padding: 15px; border: 1px solid var(--btn); border-radius: 40px; background: var(--btn); color: #fff; font-family: "Cormorant Garamond", serif; font-size: 16px; letter-spacing: 2px; cursor: pointer; transition: background .2s, color .2s, transform .1s; }
+  .rsvp-submit:hover { background: #fff; color: var(--btn); }
   .rsvp-submit:active { transform: scale(.98); }
   .rsvp-thanks { display: none; text-align: center; margin-top: 8px; font-size: 17px; color: var(--charcoal); }
   .rsvp-thanks.show { display: block; }
 
   /* ── Ending ─────────────── */
-  .ending-text { padding: 60px 32px 66px; text-align: center; background: linear-gradient(180deg, var(--card) 0%, #f9f2e2 100%); }
+  .ending-text { padding: 60px 32px 66px; text-align: center; background: var(--card); }
   .waiting { font-size: clamp(32px, 7vw, 52px); font-weight: 700; color: var(--charcoal); }
   .couple-sig { margin-top: 10px; font-size: 18px; color: var(--ash); letter-spacing: 1.5px; }
   .ending-rule { width: 40px; height: 1px; background: var(--ink); margin: 22px auto 0; }
@@ -239,7 +246,7 @@
   </div>
 
   <!-- GREETING -->
-  <div class="section greeting reveal">
+  <div class="section greeting reveal bg-sand">
     <p>Внимание! Это двое с фото считают вас близкими и дорогими сердцу людьми. Поэтому просят разделить с ними часы счастья и радости в день их свадьбы.</p>
     <div class="greeting-rule"></div>
   </div>
@@ -302,7 +309,7 @@
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
 
   <!-- PROGRAM OF THE DAY -->
-  <div class="section reveal">
+  <div class="section reveal bg-sand">
     <span class="eyebrow">Программа дня</span>
     <div class="schedule-wrap">
       <div class="schedule-item">
@@ -329,7 +336,7 @@
         </div>
       </div>
       <div class="schedule-item">
-        <div class="s-time">22:00–24:00</div>
+        <div class="s-time">22:00<br>–24:00</div>
         <div class="s-dot-wrap"><div class="s-dot"></div></div>
         <div class="s-desc">
           <strong>Вечеринка-дискотека</strong>
@@ -349,16 +356,16 @@
     <div class="loc-tag">Регистрация · 15:00</div>
     <p class="loc-name">ЗАГС</p>
     <p class="loc-address">г. Сочи, ул. Войкова, 34</p>
-    <a href="https://yandex.ru/maps/?text=г.%20Сочи%2C%20ул.%20Войкова%2C%2034" class="map-btn" rel="noopener">Маршрут на карте</a>
-    <iframe class="map-frame" src="https://www.google.com/maps?q=Сочи,+улица+Войкова,+34&output=embed" allowfullscreen loading="lazy"></iframe>
+    <a href="https://yandex.ru/maps/?pt=39.724247,43.582985,pm2rdl&z=16&l=map" class="map-btn" rel="noopener">Маршрут на карте</a>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=39.724247%2C43.582985&z=16&pt=39.724849,43.583226,pm2rdl" allowfullscreen loading="lazy"></iframe>
   </div>
 
   <div class="loc-card reveal">
     <div class="loc-tag">Банкет · 17:00</div>
     <p class="loc-name">Дом Онегина</p>
     <p class="loc-address">г. Сочи, ул. Волжская, 80</p>
-    <a href="https://yandex.ru/maps/?text=г.%20Сочи%2C%20ул.%20Волжская%2C%2080%2C%20Дом%20Онегина" class="map-btn" rel="noopener">Маршрут на карте</a>
-    <iframe class="map-frame" src="https://www.google.com/maps?q=Сочи,+улица+Волжская,+80+Дом+Онегина&output=embed" allowfullscreen loading="lazy"></iframe>
+    <a href="https://yandex.ru/maps/?pt=39.696516, 43.626695,pm2rdl&z=15&l=map" class="map-btn" rel="noopener">Маршрут на карте</a>
+    <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=39.696516%2C43.626695&z=15&pt=39.696516, 43.626695,pm2rdl" allowfullscreen loading="lazy"></iframe>
   </div>
 
   <div class="sep" style="margin-top: 56px;"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
@@ -400,7 +407,7 @@
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
 
   <!-- ДЕТАЛИ (подарки + 18+) -->
-  <div class="section reveal">
+  <div class="section reveal bg-sand">
     <span class="eyebrow">Детали</span>
 
     <div class="info-block">
@@ -414,7 +421,7 @@
     </div>
 
     <div class="info-block" style="text-align: center;">
-        <h3>Пожелания</h3>
+        <h3>Контакты</h3>
       <p>Если у вас есть желание порадовать нас сюрпризом или особенным знаком внимания — пожалуйста, смело обращайтесь к нашему банкетному менеджеру или ведущему, они с радостью помогут воплотить вашу идею.</p>
       <p style="margin-top: 14px;">Банкетный менеджер Алёна, 8 923 489-43-55</p>
       <p>Ведущий — уточним в субботу</p>
@@ -425,7 +432,7 @@
 
   <!-- МЕНЮ ШТРАФОВ -->
   <div class="section reveal" style="padding-bottom: 8px;">
-    <span class="eyebrow">На всякий случай</span>
+    <span class="eyebrow"></span>
   </div>
   <div class="fines-wrap">
     <div class="fines-card reveal-zoom">
@@ -449,7 +456,7 @@
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
 
   <!-- RSVP -->
-  <div class="rsvp-wrap">
+  <div class="rsvp-wrap bg-sand">
     <div class="rsvp-card reveal">
       <h3 class="rsvp-title">Подтвердите<br>присутствие</h3>
       <form class="rsvp-form" id="rsvpForm">
