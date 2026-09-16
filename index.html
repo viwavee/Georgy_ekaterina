@@ -30,8 +30,8 @@
     --btn: #6b4423;
   }
 
-  .bg-sand { background: var(--paper-dim); }
-  .bg-white { background: var(--card); }
+  .bg-sand { background: linear-gradient(to bottom, var(--card) 0, var(--paper-dim) 64px, var(--paper-dim) calc(100% - 64px), var(--card) 100%); }
+  .bg-white { background: linear-gradient(to bottom, var(--paper-dim) 0, var(--card) 64px, var(--card) calc(100% - 64px), var(--paper-dim) 100%); }
 
   body {
     background: var(--paper-dim);
@@ -88,7 +88,7 @@
   /* ── Hero ─────────────────── */
   .hero {
     position: relative; width: 100%; padding: 56px 24px 44px;
-    background: var(--card);
+    background: linear-gradient(to bottom, var(--card) 0, var(--card) calc(100% - 64px), var(--paper-dim) 100%);
     text-align: center; overflow: hidden;
   }
   .hero-photos { display: flex; justify-content: center; gap: 22px; margin-bottom: 30px; }
@@ -109,7 +109,7 @@
   .greeting-rule { width: 40px; height: 1px; background: var(--ink); margin: 26px auto 0; }
 
   /* ── Calendar ─────────────── */
-  .calendar-section { padding: 66px 36px; text-align: center; background: var(--card); display: flex; flex-direction: column; align-items: center; }
+  .calendar-section { padding: 66px 36px; text-align: center; background: linear-gradient(to bottom, var(--paper-dim) 0, var(--card) 64px, var(--card) calc(100% - 64px), var(--paper-dim) 100%); display: flex; flex-direction: column; align-items: center; }
   .cal-card { display: flex; flex-direction: column; align-items: center; padding: 40px 30px 34px; background: var(--card); border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(74,47,24,0.10); width: 100%; max-width: 380px; }
   @media (max-width: 480px) { .cal-card { padding: 32px 16px 26px; } }
   .cal-month { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(28px, 6vw, 38px); letter-spacing: 4px; color: var(--charcoal); margin-bottom: 24px; }
@@ -152,7 +152,7 @@
   .map-frame { width: 100%; height: 220px; border: none; border-radius: 6px; margin-top: 18px; }
 
   /* ── Countdown ─────────────── */
-  .countdown-section { background: var(--paper-dim); padding: 58px 16px 62px; text-align: center; overflow: hidden; }
+  .countdown-section { background: linear-gradient(to bottom, var(--card) 0, var(--paper-dim) 64px, var(--paper-dim) calc(100% - 64px), var(--card) 100%); padding: 58px 16px 62px; text-align: center; overflow: hidden; }
   .countdown-label { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 30px); font-weight: 700; color: var(--charcoal); letter-spacing: 0.5px; margin-bottom: 30px; display: block; }
   .countdown { display: flex; justify-content: center; align-items: center; gap: clamp(4px, 2vw, 14px); flex-wrap: nowrap; }
   .countdown-item { text-align: center; }
@@ -168,6 +168,8 @@
   .info-block:last-child { margin-bottom: 0; }
   .info-block h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; }
   .info-block p { font-size: 17px; color: #5a4326; }
+  .info-icon { width: 46px; height: 46px; margin: 0 auto 14px; color: var(--btn); }
+  .info-icon path, .info-icon circle, .info-icon rect, .info-icon polyline { stroke: currentColor; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
   /* ── Меню штрафов ─────────────── */
   .fines-wrap { padding: 20px 36px 66px; display: flex; justify-content: center; }
   @media (max-width: 480px) { .fines-wrap { padding: 10px 18px 50px; } }
@@ -209,7 +211,7 @@
   .rsvp-thanks.show { display: block; }
 
   /* ── Ending ─────────────── */
-  .ending-text { padding: 60px 32px 66px; text-align: center; background: var(--card); }
+  .ending-text { padding: 60px 32px 66px; text-align: center; background: linear-gradient(to bottom, var(--paper-dim) 0, var(--card) 64px, var(--card) 100%); }
   .waiting { font-size: clamp(32px, 7vw, 52px); font-weight: 700; color: var(--charcoal); }
   .couple-sig { margin-top: 10px; font-size: 18px; color: var(--ash); letter-spacing: 1.5px; }
   .ending-rule { width: 40px; height: 1px; background: var(--ink); margin: 22px auto 0; }
@@ -348,7 +350,7 @@
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
 
   <!-- LOCATIONS -->
-  <div class="section reveal" style="padding-bottom: 8px;">
+  <div class="section reveal" style="padding-bottom: 8px; background: linear-gradient(to bottom, var(--paper-dim) 0, var(--card) 64px, var(--card) 100%);">
     <span class="eyebrow">Место проведения</span>
   </div>
 
@@ -360,7 +362,7 @@
     <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?ll=39.724247%2C43.582985&z=16&pt=39.724849,43.583226,pm2rdl" allowfullscreen loading="lazy"></iframe>
   </div>
 
-  <div class="loc-card reveal">
+  <div class="loc-card reveal" style="background: linear-gradient(to bottom, var(--card) 0, var(--card) calc(100% - 64px), var(--paper-dim) 100%);">
     <div class="loc-tag">Банкет · 17:00</div>
     <p class="loc-name">Дом Онегина</p>
     <p class="loc-address">г. Сочи, ул. Волжская, 80</p>
@@ -397,7 +399,7 @@
   </div>
 
   <!-- DRESS CODE -->
-  <div class="section reveal">
+  <div class="section reveal bg-white">
     <span class="eyebrow">Дресс-код</span>
     <div class="info-block" style="margin-bottom: 0;">
       <p>Вечерне-деловой стиль. Будем признательны, если вы поддержите цветовую гамму нашего торжества — подойдёт любой цвет, кроме молочного и чёрного.</p>
@@ -411,16 +413,19 @@
     <span class="eyebrow">Детали</span>
 
     <div class="info-block">
+      <svg class="info-icon" viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="10" rx="1.5"/><rect x="9" y="28" width="30" height="16" rx="1.5"/><path d="M24 18v26"/><path d="M24 18c-3-6-9-10-12-7s1 7 12 7Z"/><path d="M24 18c3-6 9-10 12-7s-1 7-12 7Z"/></svg>
       <h3>Подарки</h3>
       <p>Мы очень ценим вашу заботу и внимание и будем рады любому подарку — и не важно, в какой конверт вы его упакуете.</p>
     </div>
 
     <div class="info-block">
+      <svg class="info-icon" viewBox="0 0 48 48"><path d="M14 6h8l-1.5 14a3 3 0 0 1-2.5 3 3 3 0 0 1-2.5-3Z"/><path d="M18 23v13"/><path d="M12 40h12"/><circle cx="34" cy="15" r="9"/><path d="M34 24v5"/><path d="M28 33h12"/></svg>
       <h3>Возраст гостей 18+</h3>
       <p>Несмотря на то, что мы очень любим детей, мы хотели бы в полной мере насладиться моментом праздника, поэтому ждём гостей возраста 18+.</p>
     </div>
 
     <div class="info-block" style="text-align: center;">
+        <svg class="info-icon" viewBox="0 0 48 48"><path d="M13 8h6l3 8-4 3c2 5 5 8 10 10l3-4 8 3v6c0 2-2 3-4 3C21 37 10 26 10 12c0-2 1-4 3-4Z"/></svg>
         <h3>Контакты</h3>
       <p>Если у вас есть желание порадовать нас сюрпризом или особенным знаком внимания — пожалуйста, смело обращайтесь к нашему банкетному менеджеру или ведущему, они с радостью помогут воплотить вашу идею.</p>
       <p style="margin-top: 14px;">Банкетный менеджер Алёна, 8 923 489-43-55</p>
@@ -431,10 +436,10 @@
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
 
   <!-- МЕНЮ ШТРАФОВ -->
-  <div class="section reveal" style="padding-bottom: 8px;">
+  <div class="section reveal" style="padding-bottom: 8px; background: linear-gradient(to bottom, var(--paper-dim) 0, var(--card) 64px, var(--card) 100%);">
     <span class="eyebrow"></span>
   </div>
-  <div class="fines-wrap">
+  <div class="fines-wrap" style="background: linear-gradient(to bottom, var(--card) 0, var(--card) calc(100% - 64px), var(--paper-dim) 100%);">
     <div class="fines-card reveal-zoom">
       <div class="fines-title">Меню штрафов</div>
 
